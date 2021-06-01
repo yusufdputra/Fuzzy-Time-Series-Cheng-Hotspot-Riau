@@ -14,6 +14,8 @@
 
   <!-- end page title end breadcrumb -->
 
+
+
   <div class="card-box">
     <div class="row">
       <div class="col-lg-12">
@@ -97,11 +99,7 @@
                   Transformasi Data
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="#normalisasi" data-toggle="tab" aria-expanded="false" class="nav-link">
-                  Normalisasi Data
-                </a>
-              </li>
+
             </ul>
 
             <div class="tab-content">
@@ -145,9 +143,9 @@
 
 
                   <input type="hidden" id="i_date" name="i_date" value="{{$date_select->selected_date}}">
-                  <button onclick="preprocessing()" class="btn btn-primary waves-effect waves-light btn-sm m-b-10 ">Transform Data</button>
+                  <button onclick="do_preprocessing()" class="btn btn-primary waves-effect waves-light btn-sm m-b-10 ">Transform Data</button>
 
-                  
+
 
                   <table class="responsive-datatable text-center table table-bordered table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
 
@@ -207,50 +205,14 @@
                   </table>
                 </div>
               </div>
-              <div role="tabpanel" class="tab-pane fade" id="normalisasi">
-                <div class=" table-responsive">
-                  <table class="responsive-datatable text-center table table-bordered table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
 
-                    <thead>
-                      <tr>
-                        <th>No.</th>
-                        <th>Waktu</th>
-                        <th>Kabupaten</th>
-                        <th>Jumlah Kejadian</th>
-                      </tr>
-                    </thead>
-
-
-                    <tbody id="dataset_row">
-                      @foreach ($data_transform as $index => $ds)
-                      <?php
-                      $dateObj   = DateTime::createFromFormat('!m', $ds->bulan);
-                      $monthName = $dateObj->format('F')
-                      ?>
-
-                      <tr>
-
-                        <td>{{$index+1}}</td>
-                        <td>{{$monthName}}-{{$ds->tahun}} </td>
-                        <td>{{$ds->kabupaten}}</td>
-                        <td>{{$ds->normalisasi}}</td>
-                      </tr>
-                      @endforeach
-
-
-
-
-                    </tbody>
-                  </table>
-                </div>
-              </div>
             </div>
           </div><!-- end col -->
 
         </div>
       </div>
 
-     
+
 
 
 
@@ -265,9 +227,12 @@
 
   <!-- Modal Import-->
   <div id="import-modal" class="modal-demo">
+    
+
     <button type="button" class="close" onclick="Custombox.close();">
       <span>&times;</span><span class="sr-only">Close</span>
     </button>
+
     <div class="custom-modal-text">
       <div class="text-center">
         <h4 class="text-uppercase font-bold mb-0">Import Data</h4>

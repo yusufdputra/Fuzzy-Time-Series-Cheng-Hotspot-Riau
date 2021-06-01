@@ -17,7 +17,7 @@
   <div class="card-box">
     <div class="row">
       <div class="col-lg-12">
-        <form action="" role="form" id="formLatih">
+        <form class="form-inline" role="form" id="formLatih">
 
           <div class="form-row align-items-center ">
 
@@ -36,21 +36,21 @@
               </div>
             </div>
 
-            <div class="col-auto mb-1">
-              <div class="input-group row">
-                <div class="col-auto">
-                  <div class="input-daterange input-group" id="date-range">
-                    <input type="text" name="start_time" class="form-control datepicker-autoclose-modal-year" placeholder="YYYY" id="start_time" required autocomplete="off">
-                    <input type="text" name="end_time" class="form-control datepicker-autoclose-modal-year" placeholder="YYYY" id="end_time" required autocomplete="off">
-                  </div>
-                </div>
-              </div>
-            </div>
+
 
             <div class="col-auto">
 
               <a href="#" onclick="do_latih()" class="btn btn-success waves-effect waves-light">Latih</a>
             </div>
+            <!-- <div class="col-auto ajax-loader">
+              <img id="" src="adminto/images/ajax-loader.gif" style="width: 15%;" alt="loading">
+            </div> -->
+            <!-- loading -->
+            <!-- <div id="loader" class="position-absolute" style="z-index: 99; width: 100%;">
+              <div class="d-flex justify-content-center">
+                <img src="adminto/images/ajax-loader.gif" alt="loading">
+              </div>
+            </div> -->
 
           </div>
         </form>
@@ -82,6 +82,7 @@
 
 
       <div class="col-12">
+
         <div class="row">
 
           <div class="col-xl-12 mt-md-3">
@@ -108,8 +109,8 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#flr-g" data-toggle="tab" aria-expanded="false" class="nav-link">
-                  FLR & FLRG
+                <a href="#fl" data-toggle="tab" aria-expanded="false" class="nav-link">
+                  <i>Fuzzy Relationship</i>
                 </a>
               </li>
               <li class="nav-item">
@@ -123,16 +124,14 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#hasil" data-toggle="tab" aria-expanded="false" class="nav-link">
+                <a href="#peramalan" data-toggle="tab" aria-expanded="false" class="nav-link">
                   Peramalan
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="#rmse" data-toggle="tab" aria-expanded="false" class="nav-link">
-                  RMSE
-                </a>
-              </li>
+
             </ul>
+
+
 
             <div class="tab-content">
               <div role="tabpanel" class="tab-pane fade show active" id="datasets">
@@ -171,9 +170,9 @@
                       <article class="timeline-item " style="display: block !important;">
                         <div class="timeline-desk">
                           <div class="panel">
+
                             <div class="panel-body">
-                              <span class="arrow"></span>
-                              <span class="timeline-icon bg-danger"><i class="mdi mdi-circle"></i></span>
+
                               <h4 class="text-danger"><i>Universe of discourse</i> (U) </h4>
                               <p class="timeline-date text-muted"><small>Menghitung nilai U dengan mencari nilai minimum dan maksimum dari datasets </small></p>
                               <p id="nilai_u">U = [0 , 0]</p>
@@ -185,8 +184,7 @@
                         <div class="timeline-desk">
                           <div class="panel">
                             <div class="panel-body">
-                              <span class="arrow"></span>
-                              <span class="timeline-icon bg-success"><i class="mdi mdi-circle"></i></span>
+
                               <h4 class="text-success">Distribusi Himpunan Semesta</h4>
                               <ol class="text-muted">
                                 <li>Rentang <i>(Range)</i></li>
@@ -198,8 +196,71 @@
                                 <li>Lebar Interval</li>
                                 <p id="nilai_I">I = 0</p>
 
-                                <li>Nilai tengah</li>
+                                <li>Nilai Batas Kelas</li>
+                                <div class=" table-responsive">
+                                  <table class=" text-center table table-bordered table-bordered dt-responsive nowrap" cellspacing="0" width="100%" style="color:black !important">
+                                    <thead>
+                                      <tr>
+                                        <th></th>
+                                        <th>Batas Bawah</th>
+                                        <th>Batas Atas</th>
+                                        <th>Nilai Tengah (m<sub>i</sub>)</th>
+                                        <th>Frekuensi Kejadian</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody id="tabel_nilai_batas_kelas1">
+
+                                      <tr>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                      </tr>
+
+                                    </tbody>
+                                  </table>
+                                </div>
                               </ol>
+
+
+                            </div>
+                          </div>
+                        </div>
+                      </article>
+
+                      <article class="timeline-item " style="display: block !important;">
+                        <div class="timeline-desk">
+                          <div class="panel">
+                            <div class="panel-body">
+
+                              <h4 class="text-primary">Membagi Himpunan Semesta</h4>
+                              <p class="timeline-date text-muted"><small>Pembagian himpunan yang memiliki frekuensi tinggi menjadi 2 interval dengan lebar interval yang sama, sehingga diperoleh interval yang lebih kecil. </small></p>
+                              <div class=" table-responsive">
+                                <table class="text-center table table-bordered table-bordered dt-responsive nowrap" cellspacing="0" width="100%" style="color:black !important">
+                                  <thead>
+                                    <tr>
+                                      <th></th>
+                                      <th>Batas Bawah</th>
+                                      <th>Batas Atas</th>
+                                      <th>Nilai Tengah (m<sub>i</sub>)</th>
+
+                                    </tr>
+                                  </thead>
+                                  <tbody id="tabel_nilai_batas_kelas2">
+
+                                    <tr>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>-</td>
+
+                                    </tr>
+
+                                  </tbody>
+                                </table>
+                              </div>
+
 
 
                             </div>
@@ -212,6 +273,276 @@
                   </div>
                 </div>
               </div>
+
+              <div role="tabpanel" class="tab-pane fade show " id="fuzzy">
+                <div class="row ">
+                  <div class="col-lg-7 ">
+                    <div>
+                      <div class="timeline">
+                        <article class="timeline-item " style="display: block !important;">
+                          <div class="timeline-desk">
+                            <div class="panel">
+                              <div class="panel-body">
+                                <h4 class="text-danger">Mendefinisikan Himpunan Fuzzy</h4>
+                                <p>&nbsp</p>
+                                <div class="row">
+                                  <div class="col-12">
+                                    <div class="row" id="hori-matriks_h_fuzzy">
+                                      <div class="row col-auto">
+                                        <div class="col-auto ">
+                                          <div class="input-group-prepend mb-2">
+                                            <div class="input-group-text page-link" style=" width:45px !important">&nbsp</div>
+                                          </div>
+                                        </div>
+                                        <div class="col-auto ">
+                                          <div class="input-group-prepend mb-2">
+                                            <div class="input-group-text page-link" style=" width:45px !important">A1</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-auto mr-2">
+                                    <div id="verti-matriks_h_fuzzy">
+                                      <div class="row">
+                                        <div class="col-auto ">
+                                          <div class="input-group-prepend mb-2">
+                                            <div class="input-group-text page-link" style=" width:45px !important">A1</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-auto">
+                                    <div id="matriks_h_fuzzy">
+
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                        </article>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-5 ">
+                    <div>
+                      <div class="timeline">
+                        <article class="timeline-item " style="display: block !important;">
+                          <div class="timeline-desk">
+                            <div class="panel">
+                              <div class="panel-body">
+                                <h4 class="text-success">Nilai Linguistik Himpunan Fuzzy</h4>
+                                <p>&nbsp</p>
+                                <div class="table-responsive">
+                                  <table class="text-center table table-bordered table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+
+                                    <thead>
+                                      <tr>
+                                        <th>Fuzzifikasi</th>
+                                        <th>Nilai Linguistik</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody id="tabel_linguistik">
+                                      <tr>
+                                        <td>-</td>
+                                        <td>-</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                        </article>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div role="tabpanel" class="tab-pane fade show" id="fuzzifikasi">
+                <div class="table-responsive">
+
+
+                  <table class="text-center table table-bordered table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+
+                    <thead>
+                      <tr>
+                        <th>No.</th>
+                        <th>Waktu</th>
+                        <th>Jumlah Kejadian (Normalisasi)</th>
+                        <th>Fuzzifikasi</th>
+                      </tr>
+                    </thead>
+
+
+                    <tbody id="tabel_fuzzifikasi">
+                      <tr>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                      </tr>
+
+                    </tbody>
+
+                  </table>
+                </div>
+              </div>
+
+              <div role="tabpanel" class="tab-pane fade show" id="fl">
+                <div class="table-responsive">
+                  <table class="text-center table table-bordered table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                    <thead>
+                      <tr>
+                        <th>No.</th>
+                        <th>Waktu</th>
+                        <th>Jumlah Kejadian (Normalisasi)</th>
+                        <th>FLR</th>
+                        <th>FLRG</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tabel_fl">
+                      <tr>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                      </tr>
+
+                    </tbody>
+
+                  </table>
+                </div>
+              </div>
+
+              <div role="tabpanel" class="tab-pane fade show" id="pembobotan">
+                <div class="row ">
+                  <div class="col-lg-6 ">
+                    <div>
+                      <div class="timeline">
+                        <article class="timeline-item " style="display: block !important;">
+                          <div class="timeline-desk">
+                            <div class="panel">
+                              <div class="panel-body">
+                                <h4 class="text-danger">Matrik Pembobot (W)</h4>
+                                <p class="timeline-date text-muted"><small>Bobot relasi FLR diberikan pada urutan dan perulangan yang sama sehingga diperoleh </small></p>
+                                <div id="matriks_pembobot">
+                                  <div class="row col-auto">
+                                    <div class="col-auto ">
+                                      <div class="input-group-prepend mb-2">
+                                        <div class="input-group-text page-link" style=" width:45px; color:black !important">0</div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                        </article>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6  overflow-auto ">
+                    <div>
+                      <div class="timeline">
+                        <article class="timeline-item " style="display: block !important;">
+                          <div class="timeline-desk">
+                            <div class="panel">
+                              <div class="panel-body">
+                                <h4 class="text-success">Matriks Bobot Terstandarisasi (W*)</h4>
+                                <p class="timeline-date text-muted"><small>matriks pembobot ditransfer dalam bentuk matriks pembobot terstandarisasi </small></p>
+                                <div id="matriks_terstandarisasi">
+                                  <div class="row col-auto">
+                                    <div class="col-auto ">
+                                      <div class="input-group-prepend mb-2">
+                                        <div class="input-group-text page-link" style=" width:45px; color:black !important">0</div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                        </article>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div role="tabpanel" class="tab-pane fade show " id="defuzzifikasi">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="table-responsive">
+                      <table class="text-center table table-bordered table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+
+                        <thead>
+                          <tr>
+                            <th><i>Group</i></th>
+                            <th>Fuzzifikasi</th>
+                            <th>Nilai Peramalan</th>
+                          </tr>
+                        </thead>
+                        <tbody id="tabel_defuzzifikasi">
+                          <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+
+                          </tr>
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div role="tabpanel" class="tab-pane fade show" id="peramalan">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="table-responsive">
+                      <table class="text-center table table-bordered table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+
+                        <thead>
+                          <tr>
+                            <th>No.</th>
+                            <th>Waktu</th>
+                            <th>Jumlah Kejadian</th>
+                            <th>Fuzzifikasi</th>
+                            <th>Peramalan</th>
+                          </tr>
+                        </thead>
+
+
+                        <tbody id="tabel_peramalan">
+                          <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                          </tr>
+
+                        </tbody>
+
+                      </table>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6">
+                    <h4 class="header-title m-t-0"> Grafik Perbandingan Data Aktual & Hasil Peramalan Titik Api: </h4>
+                    <div id="chartContent">
+                      <canvas id="lineChart-fts" width="300" height="200"></canvas>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
 
             </div>
           </div><!-- end col -->

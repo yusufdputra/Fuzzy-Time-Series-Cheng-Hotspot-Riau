@@ -21,6 +21,14 @@ class AdminController extends Controller
         return view('admin/pelatihan', ['kabupaten_row' => $kabupaten_row]);
     }
 
+    public function pengujian()
+    {
+        //ambil data kabupaten
+        $kabupaten_row = KabupatenModel::all();
+
+        return view('admin/pengujian', ['kabupaten_row' => $kabupaten_row]);
+    }
+
     public function import(Request $request)
     {
 

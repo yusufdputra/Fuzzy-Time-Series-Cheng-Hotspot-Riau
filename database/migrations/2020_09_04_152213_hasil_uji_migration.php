@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class TransformasiData extends Migration
+class HasilUjiMigration extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class TransformasiData extends Migration
      */
     public function up()
     {
-        Schema::create('transformasi_data', function (Blueprint $table) {
+        Schema::create('hasil_uji', function (Blueprint $table) {
             $table->id();
-          
-            $table->string('bulan');
-            $table->year('tahun');
             $table->integer('id_kabupaten');
-            $table->integer('jumlah_kejadian');
+            $table->text('waktu');
+            $table->text('jumlah_kejadian');
+            $table->text('fuzzifikasi');
+            $table->text('Peramalan');
+            $table->double('mape',22,10);
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ class TransformasiData extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('transformasi_data');
+        Schema::dropIfExists('hasil_uji');
     }
 }

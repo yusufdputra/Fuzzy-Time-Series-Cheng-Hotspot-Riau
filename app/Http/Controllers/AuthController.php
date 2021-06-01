@@ -15,7 +15,7 @@ class AuthController extends Controller
         if (!Session::get('login')) {
             return redirect('login')->with('alert', 'Kamu harus login!');
         }else{
-            return view('anonim/peramalan');
+            return view('anonim/peramalan');        
         }
     }
 

@@ -19,33 +19,44 @@ use Illuminate\Support\Facades\Session;
 
 Route::get('/', 'AnonimController@index');
 
-Route::get('pelatihan', 'AdminController@pelatihan');
+Route::get('forecasting/{kab}', 'DataController@forecasting');
 
 
-Route::get('/data', 'DataController@DataSelect');
+// Route::get('pelatihan', 'AdminController@pelatihan');
 
-Route::get('/normalisasi', 'DataController@normalisasiData');
+// Route::get('pengujian', 'AdminController@pengujian');
 
-Route::get('/peramalan', 'AnonimController@peramalan');
+// Route::get('/data', 'DataController@DataSelect');
 
-Route::get('/register', 'AuthController@register');
+// Route::get('normalisasi-latih', 'DataController@normalisasiDataLatih');
 
-Route::get('/logout', 'AuthController@logout');
+// Route::get('normalisasi-uji', 'DataController@normalisasiDataUji');
 
-//Route::get('kabupaten_selected/{id}', 'DataController@DataSetPeramalanAjax');
+// Route::get('/peramalan', 'AnonimController@peramalan');
 
-Route::get('latihAjax/{id_kab}/{start}/{end}', 'PeramalanController@LatihAjax');
+// Route::get('/register', 'AuthController@register');
 
-Route::get('preprocessing_data/{date}', 'DataController@DataSetAjax');
+// Route::get('/logout', 'AuthController@logout');
 
-Route::get('normalisasi_ajax/{id}', 'NormalisasiController@normalisasi_ajax');
+// //Route::get('kabupaten_selected/{id}', 'DataController@DataSetPeramalanAjax');
 
-Route::get('normalisasi_data_ajax/{id}', 'DataController@normalisasi_data_ajax');
 
-Route::get('selected_date', 'DataController@DataSelect');
+// Route::get('latihAjax/{id_kab}', 'PelatihanController@LatihAjax');
 
-Route::post('loginPost', 'AuthController@loginPost');
+// Route::get('UjiAjax/{id_kab}', 'PengujianController@UjiAjax');
 
-Route::post('import', 'AdminController@import');
+// Route::get('preprocessing_data/{date}', 'DataController@DataSetAjax');
 
-Route::post('remove_data', 'DataController@remove_data');
+// Route::get('data_aktual/{id_kab}', 'DataController@DataAktualAjax');
+
+// Route::get('normalisasi_ajax/{id}/{start}/{end}/{jenis}', 'NormalisasiController@normalisasi_ajax');
+
+// Route::get('normalisasi_data_ajax/{id}/{jenis}', 'DataController@normalisasi_data_ajax');
+
+// Route::get('selected_date', 'DataController@DataSelect');
+
+// Route::post('loginPost', 'AuthController@loginPost');
+
+// Route::post('import', 'AdminController@import');
+
+// Route::post('remove_data', 'DataController@remove_data');

@@ -8,7 +8,7 @@
   <!-- Page-Title -->
   <div class="row">
     <div class="col-sm-12">
-      <h4 class="page-title">Normalisasi Data Titik Api Provinsi Riau</h4>
+      <h4 class="page-title">Normalisasi Data {{$jenis}} Titik Api Provinsi Riau</h4>
     </div>
   </div>
 
@@ -16,33 +16,47 @@
 
   <div class="card-box">
     <div class="row">
-      <div class="col-lg-5">
+      <div class="col-auto">
+        <form class="form-inline">
 
-        <div class="form-row align-items-center ">
+          <div class="form-row align-items-center ">
 
-          <div class="col-8">
-            <div class="input-group row">
-              <div class="col-sm-12">
-                <div class="input-group">
+            <div class="col-auto mb-1">
+              <div class="input-group row">
+                <div class="col-sm-12">
+                  <div class="input-group">
+                  <input type="hidden" name="jenis_data" value="{{$jenis}}" id="jenis_data">
 
-                  <select id="selected_kabupaten_norm" required class="form-control">
-                    <option disabled selected>Pilih Kabupaten</option>
-                    @foreach ($kabupaten_row AS $kr)
+                    <select id="selected_kabupaten_norm" required class="form-control">
+                      <option disabled selected>Pilih Kabupaten</option>
+                      @foreach ($kabupaten_row AS $kr)
 
-                    <option value="{{$kr->id}}">{{$kr->kabupaten}}</option>
-                    @endforeach
+                      <option value="{{$kr->id}}">{{$kr->kabupaten}}</option>
+                      @endforeach
 
-                  </select>
-                </div><!-- input-group -->
+                    </select>
+                  </div><!-- input-group -->
+                </div>
               </div>
             </div>
-          </div>
-          
 
-          <div class="col-2">
-            <a onclick="do_normalisasi()" class="btn btn-success waves-effect waves-light ">Normalisasi</a>
+            <div class="col-auto mb-1">
+              <div class="input-group row">
+                <div class="col-auto">
+                  <div class="input-daterange input-group" id="date-range">
+                    <input type="text" name="start_time" class="form-control datepicker-autoclose-modal-year" placeholder="YYYY" id="start_time" required autocomplete="off">
+                    <input type="text" name="end_time" class="form-control datepicker-autoclose-modal-year" placeholder="YYYY" id="end_time" required autocomplete="off">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-auto mb-1">
+              <a onclick="do_normalisasi('{{$jenis}}')" class="btn btn-success waves-effect waves-light ">Normalisasi</a>
+            </div>
           </div>
-        </div>
+        </form>
 
       </div>
 
@@ -84,14 +98,14 @@
               </tr>
             </thead>
             <tbody id="dataset_row">
-              
+
               <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
               </tr>
-             
+
             </tbody>
           </table>
         </div>
