@@ -717,7 +717,7 @@
 
       var kab = document.getElementById('selected_kabupaten_forecast').value;
       id_chart = "lineChart_aktual"
-      console.log(kab)
+
       if (kab != "Pilih Kabupaten" && kab != null) {
         $('#loading_page').html("");
         $('#loading_page').append('<div class="loading"></div>');
@@ -736,7 +736,7 @@
           success: function(data) {
             $('#loading_page').html("");
             toastr.success('Sukses melakukan peramalan!')
-            console.log(data)
+
 
             //set untuk chart
             var data_ = data[0]['n_per_time']; // data actual
@@ -749,7 +749,6 @@
           },
           error: function(data) {
             $('#loading_page').html("");
-            console.log(data)
             toastr.error('Gagal melakukan peramalan! ')
           }
         })
@@ -771,7 +770,6 @@
 
     $("area").click(function(e) {
       var id_kab = e.target.alt;
-      console.log(id_kab);
       var id_chart = 'lineChart-aktual'
       id_chart = "lineChart_aktual"
       clearChart(id_chart)

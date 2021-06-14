@@ -22,7 +22,7 @@ class DataController extends Controller
             return cheng_py($kab_select);
 
         } catch (\Throwable $th) {
-            $msg = 'Data Kabupaten yang dipilih tidak tersedia! '.$th ;
+            $msg = 'Data Kabupaten yang dipilih tidak tersedia! ';
             return $msg;
         }
     }
