@@ -38,11 +38,11 @@ def Date_Converter(Date):
 new_wak_14_19 = [Date_Converter(d) for d in wak_14_19]
 
 # ambil data 2020 dari web link
-csv_url = "http://103.51.131.166/getCSV?$$hashKey=object:26&class=hotspot&conf_lvl=low&enddate=2021-1-1T17:00:00.000Z&id=0&loc=%7B%22kec%22:null,%22kab%22:null,%22prov%22:%22Riau%22,%22disp%22:%22Riau%22%7D&mode=cluster&name=Hotspot&startdate=2019-12-31T17:00:00.000Z&time=usedate&visibility=true"
+# csv_url = "http://103.51.131.166/getCSV?$$hashKey=object:26&class=hotspot&conf_lvl=low&enddate=2021-1-1T17:00:00.000Z&id=0&loc=%7B%22kec%22:null,%22kab%22:null,%22prov%22:%22Riau%22,%22disp%22:%22Riau%22%7D&mode=cluster&name=Hotspot&startdate=2019-12-31T17:00:00.000Z&time=usedate&visibility=true"
 
 #sampai today
-#today = str(date.today())
-#csv_url = 'http://103.51.131.166/getCSV?$$hashKey=object:26&class=hotspot&conf_lvl=low&enddate={today}T17:00:00.000Z&id=0&loc=%7B%22kec%22:null,%22kab%22:null,%22prov%22:%22Riau%22,%22disp%22:%22Riau%22%7D&mode=cluster&name=Hotspot&startdate=2019-12-31T17:00:00.000Z&time=usedate&visibility=true'
+today = str(date.today())
+csv_url = 'http://103.51.131.166/getCSV?$$hashKey=object:26&class=hotspot&conf_lvl=low&enddate={today}T17:00:00.000Z&id=0&loc=%7B%22kec%22:null,%22kab%22:null,%22prov%22:%22Riau%22,%22disp%22:%22Riau%22%7D&mode=cluster&name=Hotspot&startdate=2019-12-31T17:00:00.000Z&time=usedate&visibility=true'
 
 # pindah ke array
 kab_20 = []
